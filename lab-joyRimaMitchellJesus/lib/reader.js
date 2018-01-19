@@ -1,12 +1,15 @@
-'use strict';
+// 'use strict';
 
-const reader = module.exports = {};
+// const fs = require('fs');
+// const reader = module.exports = {};
 
-reader.read = function() {
-  fs.readFile('./assets/bitmap.bmp', (err, data) => {
-    let bmp = new bmp(data);
-    console.log(bmp)
+// reader.read = function() {
+//   fs.readFile('../asset/bitmap.bmp', (err, data) => {
+//     if (err) console.error(err);
 
-    console.log(bmp.pixelArray.length);
-  })
-}
+//     let bmp = new bmp(data);
+//     console.log(bmp);
+
+//     console.log(bmp.pixelArray.length);
+//   });
+// };
