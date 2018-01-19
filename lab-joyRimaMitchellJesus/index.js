@@ -15,104 +15,59 @@ function ReadBitmap(buffer) {
   this.pixelArray = buffer.slice(54, this.offset);
 }
 
-function WriteBitmap(buffer) {
-
-}
-
-function joy() {
+function invert() {
   fs.readFile('./asset/bitmap.bmp', (err, data) => {
     if (err) console.error(err);
 
-    function transform() {
-      let bmp = new ReadBitmap(data);
-      let pixelsArray = Object.values(bmp.pixelArray);
+    let bmp = new ReadBitmap(data);
 
-      for (let i = 0; i < pixelsArray.length; i++) {
-        if (i % 1 === 0) bmp.pixelArray[i] = 140;
-        if (i % 2 === 0) bmp.pixelArray[i] = 122;
-        if (i % 3 === 0) bmp.pixelArray[i] = 255;
-        if (i % 4 === 0) bmp.pixelArray[i] = 100;        
-      }
-      fs.writeFile('./asset/joy.bmp', bmp.allData, (err) => {
-        if (err) console.error(err);
-        console.log('transform written');
-      });
+    for (let i = 0; i < bmp.pixelArray.length; i++) {
+      bmp.pixelArray[i] = 255 - bmp.pixelArray[i];            
     }
-    transform();
+
+    fs.writeFile('./asset/invert.bmp', bmp.allData, (err) => {
+      if (err) console.error(err);
+      console.log('invert written');
+    });
   });
 }
-joy();
+invert();
 
-
-function rima() {
+function greyscale() {
   fs.readFile('./asset/bitmap.bmp', (err, data) => {
     if (err) console.error(err);
 
-    function transform() {
-      let bmp = new ReadBitmap(data);
-      let pixelsArray = Object.values(bmp.pixelArray);
+    let bmp = new ReadBitmap(data);
 
-      for (let i = 0; i < pixelsArray.length; i++) {
-        if (i % 1 === 0) bmp.pixelArray[i] = 140;
-        if (i % 2 === 0) bmp.pixelArray[i] = 122;
-        if (i % 3 === 0) bmp.pixelArray[i] = 255;
-        if (i % 4 === 0) bmp.pixelArray[i] = 100;
-      }
-      fs.writeFile('./asset/rima.bmp', bmp.allData, (err) => {
-        if (err) console.error(err);
-        console.log('transform written');
-      });
+    for (let i = 0; i < bmp.pixelArray.length / 4; i += 4) {
+      let grey = (bmp.pixelArray[i] + bmp.pixelArray[i + 1] + bmp.pixelArray[i + 2]) / 3;
+      bmp.pixelArray[i] = grey;
+      bmp.pixelArray[i + 1] = grey;
+      bmp.pixelArray[i + 2] = grey;
     }
-    transform();
+
+    fs.writeFile('./asset/greyscale.bmp', bmp.allData, (err) => {
+      if (err) console.error(err);
+      console.log('greyscale written');
+    });
   });
 }
-rima();
+greyscale();
 
-
-function mitchell() {
+function randomize() {
   fs.readFile('./asset/bitmap.bmp', (err, data) => {
     if (err) console.error(err);
 
-    function transform() {
-      let bmp = new ReadBitmap(data);
-      let pixelsArray = Object.values(bmp.pixelArray);
+    let bmp = new ReadBitmap(data);
 
-      for (let i = 0; i < pixelsArray.length; i++) {
-        if (i % 1 === 0) bmp.pixelArray[i] = 140;
-        if (i % 2 === 0) bmp.pixelArray[i] = 122;
-        if (i % 3 === 0) bmp.pixelArray[i] = 255;
-        if (i % 4 === 0) bmp.pixelArray[i] = 100;
-      }
-      fs.writeFile('./asset/mitchell.bmp', bmp.allData, (err) => {
-        if (err) console.error(err);
-        console.log('transform written');
-      });
+    for (let i = 0; i < bmp.pixelArray.length; i++) {
+      bmp.pixelArray[i] = Math.floor(Math.random() * Math.floor(255));
     }
-    transform();
+    
+    fs.writeFile('./asset/randomize.bmp', bmp.allData, (err) => {
+      if (err) console.error(err);
+      console.log('randomize written');
+    });
   });
 }
-mitchell();
-
-function jesus() {
-  fs.readFile('./asset/bitmap.bmp', (err, data) => {
-    if (err) console.error(err);
-
-    function transform() {
-      let bmp = new ReadBitmap(data);
-      let pixelsArray = Object.values(bmp.pixelArray);
-
-      for (let i = 0; i < pixelsArray.length; i++) {
-        if (i % 1 === 0) bmp.pixelArray[i] = 140;
-        if (i % 2 === 0) bmp.pixelArray[i] = 122;
-        if (i % 3 === 0) bmp.pixelArray[i] = 255;
-        if (i % 4 === 0) bmp.pixelArray[i] = 100;
-      }
-      fs.writeFile('./asset/jesus.bmp', bmp.allData, (err) => {
-        if (err) console.error(err);
-        console.log('transform written');
-      });
-    }
-    transform();
-  });
-}
-jesus();
+randomize();
