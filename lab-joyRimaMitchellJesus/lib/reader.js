@@ -25,7 +25,7 @@ reader.read = (inputPath, outputPath, transformName) => {
     // transform BMP
     fs.writeFile(outputPath, transformBmp.allData, (err) => {
       if (err) console.error(err);
-      console.log(`Your bitmap at ${inputPath} has been modified using our ${transformName} function. The modified bitmap has been written to to ${outputPath}.`);
+      console.log(`Your bitmap at ${inputPath} has been modified using our ${transformName} function. The modified bitmap has been written to ${outputPath}.`);
     });
   });
 };
