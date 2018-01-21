@@ -1,11 +1,9 @@
 'use strict';
 
-
 function invert(data) {
   for (let i = 0; i < data.pixelArray.length; i++) {
     data.pixelArray[i] = 255 - data.pixelArray[i];            
   }
-
   return data;
 }
 
