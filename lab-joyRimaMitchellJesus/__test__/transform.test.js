@@ -3,11 +3,13 @@
 const fs = require('fs');
 const bm = require('../lib/bitmap');
 const trans = require('../lib/transform');
+require('jest');
 
 
+describe('Transform module', function(){
 
-describe('Index module', function(){
   describe('invert function', function(){
+
     describe('valid inputs', function(){
       test(
         'should be same data', () => {
@@ -22,8 +24,28 @@ describe('Index module', function(){
           expect(newInvertData).toEqual(invertData);
         });
     });
+
+    describe('invalid inputs', function(){
+      test(
+        'should throw error if data is not bitmap type', () => {
+          
+          expect(() => {trans.invert({pixelArray: [1,2,3,4,5]});}).toThrow('data is not bitmap!');
+        });
+      test(
+        'should throw error if bitmap data has no pixel array', () => {
+ 
+        // get data of bitmap.bmp
+          let bmpNoPixel = new bm.bitmap(fs.readFileSync('__test__/asset/bitmap.bmp'));
+          // remove pixelArray
+          delete bmpNoPixel.pixelArray;
+
+          expect(() => {trans.invert(bmpNoPixel);}).toThrow();
+        });
+    });
   });
+
   describe('greyscale function', function(){
+
     describe('valid inputs', function(){
       test(
         'should be same data', () => {
@@ -38,8 +60,28 @@ describe('Index module', function(){
           expect(newGsData).toEqual(gsData);
         });
     });
+
+    describe('invalid inputs', function(){
+      test(
+        'should throw error if data is not bitmap type', () => {
+          
+          expect(() => {trans.greyscale({pixcelArray: [1,2,3,4,5]});}).toThrow('data is not bitmap!');
+        });
+      test(
+        'should throw error if bitmap data has no pixel array', () => {
+ 
+        // get data of bitmap.bmp
+          let bmpNoPixel = new bm.bitmap(fs.readFileSync('__test__/asset/bitmap.bmp'));
+          // remove pixelArray
+          delete bmpNoPixel.pixelArray;
+
+          expect(() => {trans.greyscale(bmpNoPixel);}).toThrow();
+        });
+    });
   });
+
   describe('randomize function', function(){
+
     describe('valid inputs', function(){
       test(
         'should be different data', () => {
@@ -52,6 +94,24 @@ describe('Index module', function(){
           let newRandomizeData = trans.randomize(bmpData);
 
           expect(newRandomizeData).not.toEqual(randomizeData);
+        });
+    });
+
+    describe('invalid inputs', function(){
+      test(
+        'should throw error if data is not bitmap type', () => {
+          
+          expect(() => {trans.randomize({pixcelArray: [1,2,3,4,5]});}).toThrow('data is not bitmap!');
+        });
+      test(
+        'should throw error if bitmap data has no pixel array', () => {
+ 
+        // get data of bitmap.bmp
+          let bmpNoPixel = new bm.bitmap(fs.readFileSync('__test__/asset/bitmap.bmp'));
+          // remove pixelArray
+          delete bmpNoPixel.pixelArray;
+
+          expect(() => {trans.randomize(bmpNoPixel);}).toThrow();
         });
     });
   });
