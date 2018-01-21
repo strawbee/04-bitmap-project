@@ -6,8 +6,14 @@ const trans = require('./transform');
 const reader = module.exports = {};
 
 reader.read = (inputPath, outputPath, transformName) => {
+  if (typeof(inputPath) !== 'string' || typeof(outputPath) !== 'string' || typeof(transformName) !== 'string') {
+    return 'ERROR: Invalid Input - only string inputs are accepted';
+  }
   fs.readFile(inputPath, (err, data) => {
-    if (err) console.error(err);
+    if (err) { 
+      console.error(err);
+      return 'ERROR: Invalid Input Path';
+    }
 
     // read BMP
     let bmp = new bitmap.bitmap(data);
@@ -24,7 +30,11 @@ reader.read = (inputPath, outputPath, transformName) => {
 
     // transform BMP
     fs.writeFile(outputPath, transformBmp.allData, (err) => {
-      if (err) console.error(err);
+      if (err) {
+        console.error(err);
+        return 'ERROR: Invalid Output Path';
+      } 
+        
       console.log(`Your bitmap at ${inputPath} has been modified using our ${transformName} function. The modified bitmap has been written to ${outputPath}.`);
     });
   });
