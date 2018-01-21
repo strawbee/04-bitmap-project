@@ -1,15 +1,32 @@
-// 'use strict';
+'use strict';
 
-// const fs = require('fs');
-// const reader = module.exports = {};
+const fs = require('fs');
+const bitmap = require('./bitmap');
+const trans = require('./transform');
+const reader = module.exports = {};
 
-// reader.read = function() {
-//   fs.readFile('../asset/bitmap.bmp', (err, data) => {
-//     if (err) console.error(err);
+reader.read = function() {
+  // read a file
+  fs.readFile('./asset/bitmap.bmp', (err, data) => {
+    if (err) console.error(err);
 
-//     let bmp = new bmp(data);
-//     console.log(bmp);
+    // read BMP
+    let bmp = new bitmap.bitmap(data);
+    console.log('bmp -> ' + bmp);
+    console.log('pixelArr length -> ' + bmp.pixelArray.length);
 
-//     console.log(bmp.pixelArray.length);
-//   });
-// };
+    // transform image
+    // if inverse
+    //let inverseBmp = trans.invert(bmp);
+    // if greyscale
+    //let gsBmp = trans.greyscale(bmp);
+    // if randomize
+    let randomBmp = trans.randomize(bmp);
+
+    // write a new file
+    fs.writeFile('./asset/randomizeTmp.bmp', randomBmp.allData, (err) => {
+      if (err) console.error(err);
+      console.log('written');
+    });
+  });
+};
