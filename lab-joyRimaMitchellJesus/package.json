@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/strawbee/04-bitmap-project#readme",
   "devDependencies": {
-    "eslint": "^4.15.0",
+    "eslint": "^4.16.0",
     "jest": "^22.1.3"
   }
 }
