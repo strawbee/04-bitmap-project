@@ -15,23 +15,16 @@ function ReadBitmap(buffer) {
   this.pixelArray = buffer.slice(54, this.offset);
 }
 
-function invert() {
-  fs.readFile('./asset/bitmap.bmp', (err, data) => {
-    if (err) console.error(err);
 
-    let bmp = new ReadBitmap(data);
 
-    for (let i = 0; i < bmp.pixelArray.length; i++) {
-      bmp.pixelArray[i] = 255 - bmp.pixelArray[i];            
-    }
+function invert(data) {
+  for (let i = 0; i < data.pixelArray.length; i++) {
+    data.pixelArray[i] = 255 - data.pixelArray[i];            
+  }
 
-    fs.writeFile('./asset/invert.bmp', bmp.allData, (err) => {
-      if (err) console.error(err);
-      console.log('invert written');
-    });
-  });
+  return data;
 }
-invert();
+
 
 function greyscale() {
   fs.readFile('./asset/bitmap.bmp', (err, data) => {
@@ -52,7 +45,7 @@ function greyscale() {
     });
   });
 }
-greyscale();
+//greyscale();
 
 function randomize() {
   fs.readFile('./asset/bitmap.bmp', (err, data) => {
@@ -70,4 +63,6 @@ function randomize() {
     });
   });
 }
-randomize();
+//randomize();
+
+module.exports = {ReadBitmap, invert};
