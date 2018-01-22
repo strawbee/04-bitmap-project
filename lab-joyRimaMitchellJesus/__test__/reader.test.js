@@ -11,20 +11,19 @@ describe('Reader Module', () => {
   });
 
   it('should log an error meesage on invalid input paths', (done) => {
-    expect(reader.read('./floof/green.bmp', './asset/invert.bmp', 'invert')).toEqual(undefined);
+    expect(reader.read('./floof/green.bmp', './asset/invert.bmp', 'invert')).toEqual('ERROR: Invalid Input Path');
     done();
   });
 
   it('should log an error message if output path folder does not exist', (done) => {
-    expect(reader.read('./asset/bitmap.bmp', './crasset/invert.bmp', 'invert')).toEqual(undefined);
+    expect(reader.read('./asset/bitmap.bmp', './crasset/invert.bmp', 'invert')).toEqual('ERROR: Invalid Output Path');
     done();
   });
 
   it('should log an error if an invalid transform name is input', () => {
-
+    expect(reader.read('./asset/bitmap.bmp', './asset/invert.bmp', 'invertttttt')).toEqual('ERROR: Invalid Transform Name');
   });
 
   it('should write a new file to the output path', () => {
-
   });
 });
