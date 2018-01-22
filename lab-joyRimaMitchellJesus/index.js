@@ -7,8 +7,8 @@ console.log(`
             By: Joy, Rima, Mitchell, & Jesus
                Code Fellows JavaScript 401
 
-                       [ HOW TO ] 
-1. From the lab-joyRimaMitchellJesus folder, 
+                       [ HOW TO ]
+1. From the lab-joyRimaMitchellJesus folder,
    run node in your terminal and enter the following line:
     const reader = require('./lib/reader');
 
@@ -17,6 +17,6 @@ console.log(`
 
    All arguments should be strings.
 
-              [ AVAILABLE TRANSFORM NAMES ] 
+              [ AVAILABLE TRANSFORM NAMES ]
               invert, greyscale, randomize
 `);
