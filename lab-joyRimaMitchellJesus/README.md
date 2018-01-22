@@ -1,4 +1,5 @@
 #Documentation
+
 ====================== BITMAP APP ======================
             By: Joy, Rima, Mitchell, & Jesus
                Code Fellows JavaScript 401
