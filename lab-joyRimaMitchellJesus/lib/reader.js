@@ -13,7 +13,6 @@ reader.read = (inputPath, outputPath, transformName) => {
     return 'ERROR: Invalid Input - only string inputs are accepted';
   }
 
-
   try{
     // read a file
     var data = fs.readFileSync(inputPath);
@@ -42,5 +41,4 @@ reader.read = (inputPath, outputPath, transformName) => {
   } catch (err) {
     return 'ERROR: Invalid Output Path';
   }
-}
-        
+};
