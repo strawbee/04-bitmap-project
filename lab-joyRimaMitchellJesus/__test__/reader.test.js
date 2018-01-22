@@ -25,5 +25,7 @@ describe('Reader Module', () => {
   });
 
   it('should write a new file to the output path', () => {
+    expect(reader.read('./asset/bitmap.bmp', './asset/invertTest.bmp', 'invert')).toEqual('SUCCESS: Transformed file created');
+    expect(fs.readFileSync('./asset/invertTest.bmp')).toBeTruthy();
   });
 });
