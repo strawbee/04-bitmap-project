@@ -2,7 +2,6 @@
 
 const bmpType = require('./bitmap');
 
-
 function invert(data) {
   if(!(data instanceof bmpType.bitmap)){
     throw new Error('data is not bitmap!');
@@ -12,7 +11,6 @@ function invert(data) {
   }
   return data;
 }
-
 
 function greyscale(data) {
   if(!(data instanceof bmpType.bitmap)){
@@ -26,7 +24,6 @@ function greyscale(data) {
   }
   return data;
 }
-
 
 function randomize(data) {
   if(!(data instanceof bmpType.bitmap)){
