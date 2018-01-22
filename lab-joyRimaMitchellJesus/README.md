@@ -24,7 +24,7 @@ Code Fellows JavaScript 401
 
 ```reader.read(input-path, output-path, transform-name);```
 
-__AVAILABLE TRANSFORM NAMES__: invert, greyscale, randomize
+**AVAILABLE TRANSFORM NAMES**: invert, greyscale, randomize
 
 All arguments should be strings. Example:
 
@@ -58,15 +58,15 @@ All arguments should be strings. Example:
 
 * The image object has the following properties: 
 
-** allData: raw buffer data from the image
+  * allData: raw buffer data from the image
 
-** sig: the bitmap signature
+  * sig: the bitmap signature
 
-** fileSize: the file size in bytes
+  * fileSize: the file size in bytes
 
-** offset: denotes the end location of the color table and where the pixel array begins
+  * offset: denotes the end location of the color table and where the pixel array begins
 
-** pixelArray: creates a shortcut to directly modify the color table
+  * pixelArray: creates a shortcut to directly modify the color table
 
 ### transform.js
 

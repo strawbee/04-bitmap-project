@@ -1,7 +1,6 @@
 'use strict';
 
-const reader = require('./lib/reader');
-/*
+/* const reader = require('./lib/reader'); */
 console.log(`
 ====================== BITMAP APP ======================
             By: Joy, Rima, Mitchell, & Jesus
@@ -20,7 +19,6 @@ console.log(`
               [ AVAILABLE TRANSFORM NAMES ]
               invert, greyscale, randomize
 `);
-*/
 
 //#!/usr/bin/env node
 
@@ -28,6 +26,7 @@ console.log(`
  * Module dependencies.
  */
 
+/*
 var program = require('commander');
 
 program
@@ -45,3 +44,4 @@ if (program.input) console.log(program.input);
 if (program.output) console.log(program.output);
 
 reader.read(program.input, program.output, program.transform);
+*/
