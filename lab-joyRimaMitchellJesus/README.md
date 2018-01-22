@@ -58,3 +58,33 @@ transform.randomize(data)
     -modifies the color table one pixel at a time to a random number
     -returns the modified image object
 
+
+#Tests
+reader.test.js
+    -Test 1: Checks to make sure the arguements are strings
+    -Test 2: Checks for valid input paths
+    -Test 3: Checks for a valid output path
+    -Test 4: Checks for a valid transform name
+    -Test 5: Checks checks that new file is written to the output path
+
+bitmap.test.js
+    -Test 1: Checks that bmp is not undefined
+    -Test 2: Checks that bmp is not NULL
+    -Test 3: Checks that bmp is an object
+    -Test 4: Checks that bmp.allData is an object
+    -Test 5: Checks that bmp.AllData.sig is a string
+    -Test 6: Checks that bmp.fileSize is a number
+    -Test 7: Checks that bmp.offset is a number
+    -Test 8: Checks that bmp.width is a number
+    -Test 9: Checks that bmp.height is a number
+    -Test 10: Checks that bmp.pixelArray is an object
+
+transform.test.js
+    -Test 1: Checks to make sure  the invert method works correctly
+    -Test 2: Checks to make sure the pixel array data is a bitmap
+    -Test 3: Checks to throw error if bitmap has no pixel array
+    -Test 4: Checks to make sure the grayscale method works correctly
+    -Test 5: Checks to make sure the randomize method has valid inputs
+    -Test 6: Checks to make sure the bitmap data has a pixel array
+
+
