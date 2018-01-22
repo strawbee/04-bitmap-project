@@ -1,6 +1,6 @@
 'use strict';
 
-// const reader = require('./lib/reader');
+/* const reader = require('./lib/reader'); */
 console.log(`
 ====================== BITMAP APP ======================
             By: Joy, Rima, Mitchell, & Jesus

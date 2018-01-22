@@ -24,7 +24,7 @@ Code Fellows JavaScript 401
 
 ```reader.read(input-path, output-path, transform-name);```
 
-__AVAILABLE TRANSFORM NAMES__: invert, greyscale, randomize
+**AVAILABLE TRANSFORM NAMES**: invert, greyscale, randomize
 
 All arguments should be strings. Example:
 
