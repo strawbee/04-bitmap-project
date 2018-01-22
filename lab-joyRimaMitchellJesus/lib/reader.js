@@ -37,6 +37,7 @@ reader.read = (inputPath, outputPath, transformName) => {
     // write a new file
     fs.writeFileSync(outputPath, transformBmp.allData);
     console.log(`Your bitmap at ${inputPath} has been modified using our ${transformName} function. The modified bitmap has been written to ${outputPath}.`);
+    return 'SUCCESS: Transformed file created';
   } catch (err) {
     return 'ERROR: Invalid Output Path';
   }
